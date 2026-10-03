@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+	--flow-accent: #4f46e5;
+}
+
+html[data-accent="teal"] {
+	--flow-accent: #0f766e;
+}
+
+html[data-accent="rose"] {
+	--flow-accent: #be123c;
+}
+
 html[data-accent="teal"] [class~="bg-indigo-600"] {
 	background-color: #0f766e;
 }
@@ -40,4 +52,198 @@ html[data-accent="rose"] [class~="bg-indigo-50"] {
 
 html[data-accent="rose"] [class~="border-indigo-400"] {
 	border-color: #fb7185;
+}
+
+html {
+	color-scheme: dark;
+	background-color: #0b1017;
+	color: #e2e8f0;
+}
+
+body {
+	background-color: #0b1017;
+	color: #e2e8f0;
+}
+
+html select {
+	color-scheme: dark;
+	color: #e5edf7;
+	background-color: #151b24;
+}
+
+html select option {
+	color: #e5edf7;
+	background-color: #151b24;
+}
+
+html select option:checked {
+	color: #f8fafc;
+	background-color: #2b3543;
+}
+
+html [class~="bg-slate-50"] {
+	background-color: #0b1017;
+}
+
+html [class~="bg-white"] {
+	background-color: #151b24;
+}
+
+html [class~="bg-slate-100"],
+html [class~="bg-slate-100/60"] {
+	background-color: #19212c;
+}
+
+html [class~="bg-slate-200"] {
+	background-color: #253142;
+}
+
+html [class~="bg-indigo-50"],
+html [class~="bg-indigo-50/60"],
+html[data-accent] [class~="bg-indigo-50"],
+html[data-accent] [class~="bg-indigo-50/60"] {
+	background-color: color-mix(in srgb, var(--flow-accent) 16%, #111923);
+}
+
+html [class~="bg-indigo-100"] {
+	background-color: color-mix(in srgb, var(--flow-accent) 22%, #111923);
+}
+
+html [class~="bg-red-50"] {
+	background-color: #321d23;
+}
+
+html [class~="bg-red-100"] {
+	background-color: #44232a;
+}
+
+html [class~="bg-emerald-50"] {
+	background-color: #142b22;
+}
+
+html [class~="bg-emerald-100"] {
+	background-color: #1b352a;
+}
+
+html [class~="bg-amber-50"] {
+	background-color: #302817;
+}
+
+html [class~="bg-amber-100"] {
+	background-color: #3d3018;
+}
+
+html [class~="bg-blue-100"] {
+	background-color: #192b40;
+}
+
+html [class~="text-slate-900"] {
+	color: #e5edf7;
+}
+
+html [class~="text-slate-800"] {
+	color: #d5deea;
+}
+
+html [class~="text-slate-700"] {
+	color: #b8c4d4;
+}
+
+html [class~="text-slate-600"] {
+	color: #9eacbd;
+}
+
+html [class~="text-slate-500"] {
+	color: #8795a8;
+}
+
+html [class~="text-slate-400"] {
+	color: #718096;
+}
+
+html [class~="text-slate-300"] {
+	color: #58677c;
+}
+
+html [class~="text-indigo-600"],
+html [class~="text-indigo-700"],
+html [class~="group-hover:text-indigo-600"],
+html[data-accent] [class~="text-indigo-600"],
+html[data-accent] [class~="text-indigo-700"],
+html[data-accent] [class~="group-hover:text-indigo-600"] {
+	color: color-mix(in srgb, var(--flow-accent) 58%, white);
+}
+
+html [class~="text-red-600"],
+html [class~="text-red-700"] {
+	color: #fca5a5;
+}
+
+html [class~="text-emerald-600"],
+html [class~="text-emerald-700"] {
+	color: #86efac;
+}
+
+html [class~="text-amber-600"],
+html [class~="text-amber-700"] {
+	color: #fcd34d;
+}
+
+html [class~="text-blue-700"] {
+	color: #93c5fd;
+}
+
+html [class~="border-slate-100"],
+html [class~="border-slate-200"] {
+	border-color: #293546;
+}
+
+html [class~="border-slate-300"] {
+	border-color: #39485d;
+}
+
+html [class~="border-red-200"] {
+	border-color: #673740;
+}
+
+html [class~="border-emerald-200"] {
+	border-color: #28543d;
+}
+
+html [class~="border-amber-200"] {
+	border-color: #665222;
+}
+
+html [class~="border-indigo-400"],
+html[data-accent] [class~="border-indigo-400"] {
+	border-color: color-mix(in srgb, var(--flow-accent) 72%, white);
+}
+
+html [class~="hover:bg-slate-50"]:hover {
+	background-color: #1d2734;
+}
+
+html [class~="hover:bg-slate-100"]:hover {
+	background-color: #253142;
+}
+
+html [class~="hover:bg-slate-200"]:hover {
+	background-color: #303e51;
+}
+
+html [class~="hover:bg-red-50"]:hover {
+	background-color: #44232a;
+}
+
+html [class~="hover:text-slate-900"]:hover {
+	color: #f1f5f9;
+}
+
+.hide-scrollbar {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
 }

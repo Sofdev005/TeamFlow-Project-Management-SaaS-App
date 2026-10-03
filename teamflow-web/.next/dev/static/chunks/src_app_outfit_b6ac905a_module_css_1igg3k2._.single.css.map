@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/outfit_b6ac905a.module.css"],"sourcesContent":["@font-face {\n    \nfont-family: 'outfit';\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../../public/fonts/Outfit-Variable.woff2%22,%22preload%22:true,%22has_size_adjust%22:true}') format('woff2');\n    font-display: swap;\n    \nfont-weight: 100 900;\n}\n\n@font-face {\n    font-family: 'outfit Fallback';\n    src: local(\"Arial\");\n    ascent-override: 100.84%;\ndescent-override: 26.22%;\nline-gap-override: 0.00%;\nsize-adjust: 99.17%;\n\n}\n\n.className {\n    font-family: 'outfit', 'outfit Fallback';\n    \n}\n\n"],"names":[],"mappings":"AAAA;;;;;;;AASA;;;;;;;;;AAUA"}}]
+}

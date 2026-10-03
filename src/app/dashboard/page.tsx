@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { CheckSquare, Clock, FolderKanban, Plus } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';
+import { OriginButton } from '@/components/ui/origin-button';
 import Spinner from '@/components/Spinner';
 import Modal from '@/components/Modal';
 import { useAuth } from '@/context/AuthContext';
@@ -97,13 +98,13 @@ export default function DashboardPage() {
           </h1>
           <p className="mt-1 text-sm text-slate-500">Here is what is happening in your workspace.</p>
         </div>
-        <button
+        <OriginButton
           onClick={() => setIsModalOpen(true)}
           className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
         >
           <Plus className="h-4 w-4" />
           New project
-        </button>
+        </OriginButton>
       </div>
 
       {error && (
@@ -162,12 +163,12 @@ export default function DashboardPage() {
               <FolderKanban className="mb-3 h-10 w-10 text-slate-300" />
               <p className="font-medium text-slate-700">No projects yet</p>
               <p className="mt-1 text-sm text-slate-500">Create your first project to get started.</p>
-              <button
+              <OriginButton
                 onClick={() => setIsModalOpen(true)}
                 className="mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
               >
                 New project
-              </button>
+              </OriginButton>
             </div>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,12 +186,12 @@ export default function DashboardPage() {
                         {project.description || 'No description'}
                       </p>
                     </Link>
-                    <button
+                    <OriginButton
                       onClick={() => handleDelete(project)}
                       className="rounded-md p-1 text-xs text-slate-400 opacity-0 transition-opacity hover:bg-red-50 hover:text-red-600 group-hover:opacity-100"
                     >
                       Delete
-                    </button>
+                    </OriginButton>
                   </div>
                   <p className="mt-4 text-xs text-slate-400">
                     Created {project.createdAt ? new Date(project.createdAt).toLocaleDateString() : '—'}
@@ -229,19 +230,19 @@ export default function DashboardPage() {
             />
           </div>
           <div className="flex justify-end gap-2">
-            <button
+            <OriginButton
               onClick={() => setIsModalOpen(false)}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Cancel
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleCreate}
               disabled={creating}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
             >
               {creating ? 'Creating...' : 'Create project'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>

@@ -7,6 +7,7 @@ import {
 } from '@dnd-kit/sortable';
 import { Plus } from 'lucide-react';
 import TaskCard from '@/components/TaskCard';
+import { OriginButton } from '@/components/ui/origin-button';
 import type { BoardColumn, TaskItem } from '@/types';
 
 interface Props {
@@ -33,13 +34,13 @@ export default function BoardColumnContainer({ column, compact = false, onTaskCl
             {column.tasks.length}
           </span>
         </div>
-        <button
+        <OriginButton
           onClick={() => onAddTask(column.id)}
           className="rounded-md p-1 text-slate-400 transition-colors hover:bg-slate-200 hover:text-slate-700"
           title="Add task"
         >
           <Plus className="h-4 w-4" />
-        </button>
+        </OriginButton>
       </div>
 
       <div className={`flex-1 overflow-y-auto pb-3 ${compact ? 'space-y-1 px-2' : 'space-y-2 px-3'}`} style={{ minHeight: 120 }}>

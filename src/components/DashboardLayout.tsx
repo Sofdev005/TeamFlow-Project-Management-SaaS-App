@@ -6,6 +6,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { FolderKanban, LayoutDashboard, LogOut, Settings, Users } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { cn } from '@/lib/utils';
+import BrandLogo from '@/components/BrandLogo';
+import { OriginButton } from '@/components/ui/origin-button';
 import Spinner from '@/components/Spinner';
 
 const NAV_ITEMS = [
@@ -44,10 +46,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Sidebar */}
       <aside className="flex w-64 flex-col border-r border-slate-200 bg-white">
         <div className="flex h-16 items-center gap-2 border-b border-slate-200 px-6">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white">
-            TF
-          </div>
-          <span className="text-lg font-semibold tracking-tight">TeamFlow</span>
+          <BrandLogo size="sidebar" />
         </div>
 
         <nav className="flex-1 space-y-1 px-3 py-4">
@@ -81,13 +80,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <p className="truncate text-xs text-slate-500">{user?.email}</p>
             </div>
           </div>
-          <button
+          <OriginButton
             onClick={handleLogout}
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-red-50 hover:text-red-700"
           >
             <LogOut className="h-4 w-4" />
             Sign out
-          </button>
+          </OriginButton>
         </div>
       </aside>
 

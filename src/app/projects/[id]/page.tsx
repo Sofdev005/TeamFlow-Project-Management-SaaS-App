@@ -14,6 +14,7 @@ import {
 import { arrayMove } from '@dnd-kit/sortable';
 import { ArrowLeft, Plus, RefreshCw, UserPlus } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';
+import { OriginButton } from '@/components/ui/origin-button';
 import BoardColumnContainer from '@/components/BoardColumnContainer';
 import TaskSideDrawer from '@/components/TaskSideDrawer';
 import Spinner from '@/components/Spinner';
@@ -318,24 +319,24 @@ export default function ProjectBoardPage() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button
+            <OriginButton
               onClick={fetchBoard}
               className="flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               <RefreshCw className="h-4 w-4" /> Refresh
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={() => setIsAddColumnOpen(true)}
               className="flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               <Plus className="h-4 w-4" /> Add column
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={openAddProjectMember}
               className="flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               <UserPlus className="h-4 w-4" /> Add member
-            </button>
+            </OriginButton>
           </div>
         </div>
       </div>
@@ -362,7 +363,7 @@ export default function ProjectBoardPage() {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
-          <div className="flex items-start gap-4 overflow-x-auto pb-4">
+          <div className="hide-scrollbar flex items-start gap-4 overflow-x-auto pb-4">
             {columns.map((column) => (
               <BoardColumnContainer
                 key={column.id}
@@ -375,12 +376,12 @@ export default function ProjectBoardPage() {
                 onAddTask={openAddTask}
               />
             ))}
-            <button
+            <OriginButton
               onClick={() => setIsAddColumnOpen(true)}
               className="flex h-24 w-72 shrink-0 items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 text-sm font-medium text-slate-500 hover:border-indigo-400 hover:text-indigo-600"
             >
               <Plus className="h-4 w-4" /> Add column
-            </button>
+            </OriginButton>
           </div>
         </DndContext>
       )}
@@ -422,12 +423,12 @@ export default function ProjectBoardPage() {
             </select>
           </div>
           <div className="flex justify-end gap-2">
-            <button onClick={() => setIsAddMemberOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+            <OriginButton onClick={() => setIsAddMemberOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
               Cancel
-            </button>
-            <button onClick={handleAddProjectMember} disabled={addingProjectMember || !selectedMemberId} className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50">
+            </OriginButton>
+            <OriginButton onClick={handleAddProjectMember} disabled={addingProjectMember || !selectedMemberId} className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50">
               {addingProjectMember ? 'Adding...' : 'Add to project'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>
@@ -472,19 +473,19 @@ export default function ProjectBoardPage() {
             </select>
           </div>
           <div className="flex justify-end gap-2">
-            <button
+            <OriginButton
               onClick={() => setIsAddTaskOpen(false)}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Cancel
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleCreateTask}
               disabled={creatingTask}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
             >
               {creatingTask ? 'Creating...' : 'Create task'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>
@@ -506,19 +507,19 @@ export default function ProjectBoardPage() {
             />
           </div>
           <div className="flex justify-end gap-2">
-            <button
+            <OriginButton
               onClick={() => setIsAddColumnOpen(false)}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Cancel
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleAddColumn}
               disabled={creatingColumn || !newColumnName.trim()}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
             >
               {creatingColumn ? 'Adding...' : 'Add column'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>

@@ -2,6 +2,7 @@
 
 import { Building2, Check, ListTodo, Palette, RotateCcw, User } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';
+import { OriginButton } from '@/components/ui/origin-button';
 import { useAuth } from '@/context/AuthContext';
 import { useUserPreferences, type AccentColor, type BoardDensity } from '@/context/UserPreferencesContext';
 import type { TaskPriority } from '@/types';
@@ -86,7 +87,7 @@ export default function SettingsPage() {
             {ACCENTS.map((accent) => {
               const selected = preferences.accent === accent.id;
               return (
-                <button
+                <OriginButton
                   key={accent.id}
                   type="button"
                   onClick={() => updatePreferences({ accent: accent.id })}
@@ -100,7 +101,7 @@ export default function SettingsPage() {
                     {selected && <Check className="h-3 w-3 text-white" />}
                   </span>
                   {accent.label}
-                </button>
+                </OriginButton>
               );
             })}
           </div>
@@ -119,7 +120,7 @@ export default function SettingsPage() {
             <legend className="mb-2 text-sm font-medium text-slate-700">Default task priority</legend>
             <div className="flex flex-wrap gap-2">
               {PRIORITIES.map((priority) => (
-                <button
+                <OriginButton
                   key={priority}
                   type="button"
                   onClick={() => updatePreferences({ defaultTaskPriority: priority })}
@@ -131,7 +132,7 @@ export default function SettingsPage() {
                   }`}
                 >
                   {priority}
-                </button>
+                </OriginButton>
               ))}
             </div>
           </fieldset>
@@ -142,7 +143,7 @@ export default function SettingsPage() {
               {DENSITIES.map((density) => {
                 const selected = preferences.boardDensity === density.id;
                 return (
-                  <button
+                  <OriginButton
                     key={density.id}
                     type="button"
                     onClick={() => updatePreferences({ boardDensity: density.id })}
@@ -153,7 +154,7 @@ export default function SettingsPage() {
                   >
                     <span className="block text-sm font-medium text-slate-900">{density.label}</span>
                     <span className="mt-1 block text-xs text-slate-500">{density.description}</span>
-                  </button>
+                  </OriginButton>
                 );
               })}
             </div>
@@ -161,13 +162,13 @@ export default function SettingsPage() {
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <p className="text-xs text-slate-500">Preferences are saved automatically in this browser.</p>
-            <button
+            <OriginButton
               type="button"
               onClick={resetPreferences}
               className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               <RotateCcw className="h-4 w-4" /> Reset preferences
-            </button>
+            </OriginButton>
           </div>
         </section>
       </div>

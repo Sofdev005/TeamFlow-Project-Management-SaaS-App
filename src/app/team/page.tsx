@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { UserPlus, Users } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';
+import { OriginButton } from '@/components/ui/origin-button';
 import Spinner from '@/components/Spinner';
 import Modal from '@/components/Modal';
 import { getErrorMessage } from '@/lib/apiClient';
@@ -101,7 +102,7 @@ export default function TeamPage() {
           <h1 className="text-2xl font-bold tracking-tight">Team</h1>
           <p className="mt-1 text-sm text-slate-500">Manage members of your organization.</p>
         </div>
-        <button
+        <OriginButton
           onClick={() => {
             setInviteError(null);
             setInviteSuccess(null);
@@ -111,7 +112,7 @@ export default function TeamPage() {
         >
           <UserPlus className="h-4 w-4" />
           Invite member
-        </button>
+        </OriginButton>
       </div>
 
       {error && (
@@ -234,19 +235,19 @@ export default function TeamPage() {
               </select>
             </div>
           <div className="flex justify-end gap-2">
-            <button
+            <OriginButton
               onClick={() => setIsInviteOpen(false)}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Close
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleInvite}
               disabled={inviting}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
             >
               {inviting ? 'Adding...' : 'Add member'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>

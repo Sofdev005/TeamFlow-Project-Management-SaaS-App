@@ -1,0 +1,22 @@
+/* [project]/src/app/outfit_b6ac905a.module.css [app-client] (css) */
+@font-face {
+  font-family: outfit;
+  src: url("../media/Outfit_Variable-s.p.406zhd8elnkq8.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: outfit Fallback;
+  src: local(Arial);
+  ascent-override: 100.84%;
+  descent-override: 26.22%;
+  line-gap-override: 0.0%;
+  size-adjust: 99.17%;
+}
+
+.outfit_b6ac905a-module__-26fDa__className {
+  font-family: outfit, outfit Fallback;
+}
+
+/*# sourceMappingURL=src_app_outfit_b6ac905a_module_css_1igg3k2._.single.css.map*/

@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { getErrorMessage } from '@/lib/apiClient';
+import BrandLogo from '@/components/BrandLogo';
 import Spinner from '@/components/Spinner';
+import { FlowButton } from '@/components/ui/flow-button';
+import KineticGrid from '@/components/KineticGrid';
 
 export default function RegisterPage() {
   const { register } = useAuth();
@@ -46,12 +49,11 @@ export default function RegisterPage() {
     'w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500';
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-10">
-      <div className="w-full max-w-md">
+    <div className="relative isolate flex min-h-screen items-center justify-center bg-slate-50 px-4 py-10">
+      <KineticGrid />
+      <div className="relative z-10 w-full max-w-md">
         <div className="mb-8 flex flex-col items-center">
-          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-lg font-bold text-white">
-            TF
-          </div>
+          <BrandLogo className="mb-3" />
           <h1 className="text-2xl font-bold tracking-tight">Create your workspace</h1>
           <p className="mt-1 text-sm text-slate-500">Register and set up your organization</p>
         </div>
@@ -110,14 +112,16 @@ export default function RegisterPage() {
             />
           </div>
 
-          <button
+          <FlowButton
             type="submit"
-            disabled={submitting}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700 disabled:opacity-50"
+            loading={submitting}
+            className="w-full"
           >
-            {submitting && <Spinner className="h-4 w-4 text-white" />}
+            {submitting && (
+              <Spinner className="h-4 w-4 text-[var(--flow-accent)] group-hover:text-white group-focus-visible:text-white" />
+            )}
             {submitting ? 'Creating workspace...' : 'Create workspace'}
-          </button>
+          </FlowButton>
         </form>
 
         <p className="mt-4 text-center text-sm text-slate-500">

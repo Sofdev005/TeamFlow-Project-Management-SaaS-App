@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Trash2, X } from 'lucide-react';
+import { OriginButton } from '@/components/ui/origin-button';
 import { deleteTask, priorityToApi, updateTask, type UpdateTaskInput } from '@/services/taskService';
 import { getErrorMessage } from '@/lib/apiClient';
 import type { TaskItem, TaskPriority } from '@/types';
@@ -86,12 +87,13 @@ export default function TaskSideDrawer({ task, open, onClose, onSaved, onDeleted
       <div className="relative flex h-full w-full max-w-md flex-col bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
           <h2 className="text-lg font-semibold text-slate-900">Edit task</h2>
-          <button
+          <OriginButton
             onClick={onClose}
+            aria-label="Close"
             className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
           >
             <X className="h-5 w-5" />
-          </button>
+          </OriginButton>
         </div>
 
         <div className="flex-1 space-y-5 overflow-y-auto px-6 py-5">
@@ -154,28 +156,28 @@ export default function TaskSideDrawer({ task, open, onClose, onSaved, onDeleted
         </div>
 
         <div className="flex items-center justify-between border-t border-slate-200 px-6 py-4">
-          <button
+          <OriginButton
             onClick={handleDelete}
             disabled={deleting}
             className="flex items-center gap-2 rounded-lg border border-red-200 px-4 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50 disabled:opacity-50"
           >
             <Trash2 className="h-4 w-4" />
             {deleting ? 'Deleting...' : 'Delete'}
-          </button>
+          </OriginButton>
           <div className="flex gap-2">
-            <button
+            <OriginButton
               onClick={onClose}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
             >
               Cancel
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleSave}
               disabled={saving}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save changes'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </div>

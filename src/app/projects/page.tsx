@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { ArrowRight, FolderKanban, Plus } from 'lucide-react';
+import { FolderKanban, Plus } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';
+import ProjectCard from '@/components/ProjectCard';
+import { OriginButton } from '@/components/ui/origin-button';
 import Spinner from '@/components/Spinner';
 import Modal from '@/components/Modal';
 import { useAuth } from '@/context/AuthContext';
@@ -84,13 +85,13 @@ export default function ProjectsPage() {
           <h1 className="text-2xl font-bold tracking-tight">Projects</h1>
           <p className="mt-1 text-sm text-slate-500">All projects in your workspace.</p>
         </div>
-        <button
+        <OriginButton
           onClick={() => setIsModalOpen(true)}
           className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
         >
           <Plus className="h-4 w-4" />
           New project
-        </button>
+        </OriginButton>
       </div>
 
       {error && (
@@ -110,62 +111,10 @@ export default function ProjectsPage() {
           <p className="mt-1 text-sm text-slate-500">Create your first project to get started.</p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase text-slate-500">
-              <tr>
-                <th className="px-6 py-3 font-medium">Name</th>
-                <th className="px-6 py-3 font-medium">Description</th>
-                <th className="hidden px-6 py-3 font-medium sm:table-cell">Created</th>
-                <th className="px-6 py-3 font-medium">Status</th>
-                <th className="px-6 py-3 text-right font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {projects.map((project) => (
-                <tr key={project.id} className="transition-colors hover:bg-slate-50">
-                  <td className="px-6 py-4 font-medium text-slate-900">
-                    <Link href={`/projects/${project.id}`} className="hover:text-indigo-600">
-                      {project.name}
-                    </Link>
-                  </td>
-                  <td className="max-w-xs truncate px-6 py-4 text-slate-500">
-                    {project.description || '—'}
-                  </td>
-                  <td className="hidden px-6 py-4 text-slate-500 sm:table-cell">
-                    {project.createdAt ? new Date(project.createdAt).toLocaleDateString() : '—'}
-                  </td>
-                  <td className="px-6 py-4">
-                    {project.isArchived ? (
-                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
-                        Archived
-                      </span>
-                    ) : (
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
-                        Active
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center justify-end gap-3">
-                      <Link
-                        href={`/projects/${project.id}`}
-                        className="flex items-center gap-1 text-indigo-600 hover:text-indigo-700"
-                      >
-                        Board <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <button
-                        onClick={() => handleDelete(project)}
-                        className="text-slate-400 hover:text-red-600"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} onDelete={handleDelete} />
+          ))}
         </div>
       )}
 
@@ -195,19 +144,19 @@ export default function ProjectsPage() {
             />
           </div>
           <div className="flex justify-end gap-2">
-            <button
+            <OriginButton
               onClick={() => setIsModalOpen(false)}
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Cancel
-            </button>
-            <button
+            </OriginButton>
+            <OriginButton
               onClick={handleCreate}
               disabled={creating}
               className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
             >
               {creating ? 'Creating...' : 'Create project'}
-            </button>
+            </OriginButton>
           </div>
         </div>
       </Modal>

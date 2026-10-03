@@ -2,6 +2,7 @@
 
 import { X } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { OriginButton } from '@/components/ui/origin-button';
 
 interface Props {
   open: boolean;
@@ -18,12 +19,13 @@ export default function Modal({ open, onClose, title, children }: Props) {
       <div className="relative w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
-          <button
+          <OriginButton
             onClick={onClose}
+            aria-label="Close"
             className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
           >
             <X className="h-5 w-5" />
-          </button>
+          </OriginButton>
         </div>
         {children}
       </div>
