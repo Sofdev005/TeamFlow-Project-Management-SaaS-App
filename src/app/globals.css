@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+html[data-accent="teal"] [class~="bg-indigo-600"] {
+	background-color: #0f766e;
+}
+
+html[data-accent="teal"] [class~="hover:bg-indigo-700"]:hover {
+	background-color: #115e59;
+}
+
+html[data-accent="teal"] [class~="text-indigo-600"],
+html[data-accent="teal"] [class~="text-indigo-700"] {
+	color: #0f766e;
+}
+
+html[data-accent="teal"] [class~="bg-indigo-50"] {
+	background-color: #f0fdfa;
+}
+
+html[data-accent="teal"] [class~="border-indigo-400"] {
+	border-color: #2dd4bf;
+}
+
+html[data-accent="rose"] [class~="bg-indigo-600"] {
+	background-color: #be123c;
+}
+
+html[data-accent="rose"] [class~="hover:bg-indigo-700"]:hover {
+	background-color: #9f1239;
+}
+
+html[data-accent="rose"] [class~="text-indigo-600"],
+html[data-accent="rose"] [class~="text-indigo-700"] {
+	color: #be123c;
+}
+
+html[data-accent="rose"] [class~="bg-indigo-50"] {
+	background-color: #fff1f2;
+}
+
+html[data-accent="rose"] [class~="border-indigo-400"] {
+	border-color: #fb7185;
+}
