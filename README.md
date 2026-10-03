@@ -2,6 +2,11 @@
 
 Frontend for TeamFlow - a multi-tenant project & task management app (Next.js App Router + .NET 8 API).
 
+
+<img width="7712" height="6685" alt="diagram (1)" src="https://github.com/user-attachments/assets/444b7d46-ff38-4f93-9b08-3764c35110e8" />
+
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/sofdev005/teamflow-project-management-saas-app?utm_source=readme&utm_medium=badge)
+
 ## Stack
 
 - Next.js 16.3.6 (App Router), React 19.2.8, TypeScript 5
